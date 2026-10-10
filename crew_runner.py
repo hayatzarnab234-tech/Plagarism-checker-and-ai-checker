@@ -17,9 +17,14 @@ from citation_reviewer import build_agent as build_citation_agent
 from report_analyst import build_agent as build_report_agent
 
 
+
 def run_analysis(submitted_text, matches, api_key=None):
     """Run the multi-agent academic integrity analysis."""
+
+    submitted_text = limit_text(submitted_text, max_chars=6000)
+
     llm = create_llm(api_key)
+
 
     document_agent = build_document_agent(llm)
     plagiarism_agent = build_plagiarism_agent(llm)
