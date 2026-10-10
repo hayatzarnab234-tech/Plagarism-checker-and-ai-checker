@@ -44,7 +44,7 @@ def run_analysis(submitted_text, matches, api_key=None):
                 f"Reference passage: {match['reference_sentence']}\n"
                 f"Similarity score: {match['similarity']}%"
             )
-        match_text = "\n\n".join(match_lines)
+match_text = limit_text(match_text, max_chars=2000)
 
     document_task = Task(
         description=(
