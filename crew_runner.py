@@ -1,4 +1,9 @@
 
+import crewai.llms.cache as crew_cache
+
+# Fix Groq's unsupported cache_breakpoint error
+crew_cache.mark_cache_breakpoint = lambda msg: msg
+
 from crewai import Crew, Process, Task
 
 from llm_setup import create_llm
