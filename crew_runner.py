@@ -1,4 +1,7 @@
 
+def limit_text(text, max_chars=12000):
+    return (text or "")[:max_chars]
+
 import crewai.llms.cache as crew_cache
 
 # Fix Groq's unsupported cache_breakpoint error
